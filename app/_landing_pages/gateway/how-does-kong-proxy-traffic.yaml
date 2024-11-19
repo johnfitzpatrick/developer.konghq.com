@@ -1,0 +1,136 @@
+metadata:
+  title: How does Kong proxy traffic?
+rows:
+  - header:
+      type: h1
+      text: "How does Kong proxy traffic?"
+      sub_text: "It's a combination of things..."
+
+  - columns:
+      - blocks:
+          - type: card
+            config:
+              title: Listeners
+              description: |
+                Kong can listen for L4 and L7 traffic
+              cta_text: Learn more
+              cta_url: /gateway/plugins
+      - blocks:
+          - type: card
+            config:
+              title: ""
+              description: |
+                This is a visual item that shows listeners
+
+  - columns:
+      - blocks:
+          - type: card
+            config:
+              title: ""
+              description: |
+                This is a visual item that shows routing criteria
+      - blocks:
+          - type: card
+            config:
+              title: Routing
+              description: |
+                Routing is how Kong decides to send traffic to your upstream services.
+
+                You can route based on a variety of criteria
+              cta_text: Learn more
+              cta_url: /gateway/routing
+
+  - columns:
+      - blocks:
+          - type: card
+            config:
+              title: Plugin Execution
+              description: |
+                Plugins can execute before the request is sent upstream. You can use this to customize the incoming request
+              cta_text: Learn more
+              cta_url: /gateway/plugins
+      - blocks:
+          - type: card
+            config:
+              title: ""
+              description: |
+                This is a visual item that shows plugin execution
+  - columns:
+      - blocks:
+          - type: card
+            config:
+              title: ""
+              description: |
+                This is a visual item that shows load balancing
+      - blocks:
+          - type: card
+            config:
+              title: Load Balancing
+              description: |
+                Load balancing distributes incoming requests across multiple upstream services to ensure reliability and performance.
+              cta_text: Learn more
+              cta_url: /gateway/load-balancing
+
+  - columns:
+      - blocks:
+          - type: card
+            config:
+              title: Plugin Execution
+              description: |
+                Plugins can execute before the request is sent upstream. You can use this to customize the incoming request
+              cta_text: Learn more
+              cta_url: /gateway/plugins
+      - blocks:
+          - type: card
+            config:
+              title: ""
+              description: |
+                This is a visual item that shows plugin execution
+
+  - columns:
+      - blocks:
+          - type: card
+            config:
+              title: ""
+              description: |
+                This is a visual item that shows the response phase
+      - blocks:
+          - type: card
+            config:
+              title: Response
+              description: |
+                The response phase is when Kong sends the response back to the client after processing the request.
+              cta_text: Learn more
+              cta_url: /gateway/response
+
+  - columns:
+      - blocks:
+          - type: card
+            config:
+              title: Proxying and Upstream Timeouts
+              description: |
+                Proxying and upstream timeouts are crucial for managing the time Kong waits for responses from upstream services.
+              cta_text: Learn more
+              cta_url: /gateway/timeouts
+      - blocks:
+          - type: card
+            config:
+              title: ""
+              description: |
+                This is a visual item that shows proxying and upstream timeouts
+
+  - columns:
+      - blocks:
+          - type: card
+            config:
+              title: ""
+              description: |
+                This is a visual item that shows errors and retries
+      - blocks:
+          - type: card
+            config:
+              title: Errors and Retries
+              description: |
+                Kong handles errors and retries to ensure that requests are processed reliably even in the face of failures.
+              cta_text: Learn more
+              cta_url: /gateway/errors

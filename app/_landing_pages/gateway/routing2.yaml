@@ -1,0 +1,36 @@
+metadata:
+  title: Routing
+rows:
+  - columns:
+      - blocks:
+          - type: card
+            config:
+              title: Layer 4
+              description: |
+                Layer 4 supports TCP and TLS
+      - blocks:
+          - type: card
+            config:
+              title: Layer 7
+              description: |
+                Layer 7 supports HTTP, GRPC, Websockets
+
+  - columns:
+      - blocks:
+          - type: card
+            config:
+              title: Path
+              description: |
+                Lorem ipsum
+      - blocks:
+          - type: card
+            config:
+              title: Header
+              description: |
+                Lorem ipsum
+      - blocks:
+          - type: card
+            config:
+              title: Method
+              description: |
+                Lorem ipsum

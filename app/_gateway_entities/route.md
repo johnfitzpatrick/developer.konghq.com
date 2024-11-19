@@ -15,17 +15,16 @@ related_resources:
     url: /gateway/routing/expressions/
 
 tools:
-    - admin-api
-    - konnect-api
-    - kic
-    - deck
-    - ui
-    - terraform
+  - admin-api
+  - konnect-api
+  - kic
+  - deck
+  - ui
+  - terraform
 
 schema:
-    api: gateway/admin-ee
-    path: /schemas/Route
-
+  api: gateway/admin-ee
+  path: /schemas/Route
 ---
 
 ## What is a route?
@@ -34,13 +33,12 @@ schema:
 
 You can also configure routes with:
 
-* Protocols: The protocol used to communicate with the upstream application.
-* Hosts: Lists of domains that match a route
-* Methods: HTTP methods that match a route
-* Headers: Lists of values that are expected in the header of a request
-* Redirect status codes: HTTPS status codes
-* Tags: Optional set of strings to group routes with
-
+- Protocols: The protocol used to communicate with the upstream application.
+- Hosts: Lists of domains that match a route
+- Methods: HTTP methods that match a route
+- Headers: Lists of values that are expected in the header of a request
+- Redirect status codes: HTTPS status codes
+- Tags: Optional set of strings to group routes with
 
 {% contentfor setup_entity %}
 {% entity_example %}
@@ -60,9 +58,83 @@ For example, if you have an external application and an internal application tha
 
 In the example above, two routes can be created, say /external and /internal, and both routes can point to example_service. A policy can be configured to limit how often the /external route is used and the route can be communicated to the external client for use. When the external client tries to access the service via Kong Gateway using /external, they are rate limited. But when the internal client accesses the service using Kong Gateway using /internal, the internal client will not be limited.
 
-## Dynamically rewrite request URLs with routes
+## How does routing work?
 
-Routes can be configured dynamically to rewrite the requested URL to a different URL for the upstream. For example, your legacy upstream endpoint may have a base URI like `/api/old/`. However, you want your publicly accessible API endpoint to now be named `/new/api`. To route the service's upstream endpoint to the new URL, you could set up a service with the path `/api/old/` and a route with the path `/new/api`. 
+How does routing work?
+
+- Protocols
+- Criteria
+- Priority
+
+### Protocols
+
+Routing attributes are different depending on the subsystem. @TODO: Explain listeners in kong.conf
+
+- proxy_listen: http: methods, hosts, headers, paths (and snis, if https)
+- stream_listen: tcp: sources, destinations (and snis, if tls)
+- proxy_listen: grpc: hosts, headers, paths (and snis, if grpcs)
+
+#### HTTP / HTTPS / Websocket / GRPC
+
+...
+
+#### TCP / TLS
+
+...
+
+### Available routing criteria
+
+Mention the difference between L4 and L7 and how it related back to the `_listen` config.
+
+- Header
+- Path
+- Method
+- Source
+- Destination
+- SNIs
+
+#### Header
+
+- Host - including wildcard hostnames
+- `preserve_host` option
+- Additional headers
+
+#### Path (L4)
+
+...
+
+#### Method (L4)
+
+...
+
+#### SNIs (L4, L7)
+
+...
+
+#### Source (L4)
+
+...
+
+#### Destination (L4)
+
+...
+
+### Criteria matching
+
+Routing attributes are optional, but must have at least one. To match a route, the request must include ALL configured fields. To match a route, the request must match at least one of the configured values.
+
+##### Matching priorities
+
+...
+
+
+## Common use cases
+
+TODO: Link to how-tos
+
+### Dynamically rewrite request URLs with routes
+
+Routes can be configured dynamically to rewrite the requested URL to a different URL for the upstream. For example, your legacy upstream endpoint may have a base URI like `/api/old/`. However, you want your publicly accessible API endpoint to now be named `/new/api`. To route the service's upstream endpoint to the new URL, you could set up a service with the path `/api/old/` and a route with the path `/new/api`.
 
 {{site.base_gateway}} can also handle more complex URL rewriting cases by using regular expression capture groups in the route path and the [Request Transformer Advanced](https://docs.konghq.com/hub/kong-inc/request-transformer-advanced/) plugin. For example, this can be used when you must replace `/api/<function>/old` with `/new/api/<function>`.
 
