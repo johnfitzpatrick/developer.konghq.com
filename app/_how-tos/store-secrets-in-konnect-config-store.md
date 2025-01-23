@@ -3,7 +3,7 @@ title: Store secrets in Konnect Config Store
 content_type: how_to
 related_resources:
   - text: Secrets management
-    url: /secrets-management 
+    url: /gateway/secrets-management 
 
 products:
     - gateway

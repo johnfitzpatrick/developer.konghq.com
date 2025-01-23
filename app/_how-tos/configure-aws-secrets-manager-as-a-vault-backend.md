@@ -5,7 +5,7 @@ related_resources:
   - text: Rotate secrets in AWS Secrets Manager with {{site.base_gateway}}
     url: /how-to/rotate-secrets-in-aws-secrets-manager  
   - text: Secrets management
-    url: /secrets-management 
+    url: /gateway/secrets-management 
 
 products:
     - gateway
